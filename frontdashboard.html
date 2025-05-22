@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Attendance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .section {
+      margin: 20px 0;
+    }
+
+    .section label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="date"] {
+      padding: 8px;
+      width: 100%;
+      max-width: 250px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin: 8px 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #dateDisplay {
+      display: inline-block;
+      margin-top: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Student Attendance System</h2>
+
+    <div class="section">
+      <label>Current Date: <span id="dateDisplay"></span></label>
+      <input type="date" id="calendar">
+    </div>
+
+    <div class="section">
+      <button onclick="addStudent()">Add Student</button>
+      <button onclick="startAttendance()">Start Attendance</button>
+    </div>
+
+    <div class="section">
+      <button onclick="markPresent()">Present</button>
+      <button onclick="markAbsent()">Absent</button>
+    </div>
+
+    <div class="section">
+      <button onclick="viewStatistics()">Statistics</button>
+      <button onclick="sundaysAbsent()">Sundays Absent</button>
+      <button onclick="resetLate()">Reset Late</button>
+    </div>
+  </div>
+
+  <script>
+    // Display the current date
+    document.getElementById("dateDisplay").textContent = new Date().toLocaleDateString();
+
+    function addStudent() {
+      alert("Add Student clicked");
+    }
+
+    function startAttendance() {
+      alert("Attendance started");
+    }
+
+    function markPresent() {
+      alert("Student marked present");
+    }
+
+    function markAbsent() {
+      alert("Student marked absent");
+    }
+
+    function viewStatistics() {
+      alert("Viewing statistics");
+    }
+
+    function sundaysAbsent() {
+      alert("Showing Sundays absent");
+    }
+
+    function resetLate() {
+      alert("Late representation reset");
+    }
+  </script>
+
+</body>
+</html>
