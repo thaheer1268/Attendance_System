@@ -1,136 +1,257 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Student Attendance</title>
-  <link rel="stylesheet" href="frontdashboard.js">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Attendance System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
     }
 
-    .container {
-      background: #ffffff;
-      padding: 30px;
-      width: 100%;
-      max-width: 500px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    h2 {
-      margin-bottom: 20px;
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f6f8;
       color: #333;
     }
 
-    .section {
-      margin: 20px 0;
+    .header {
+      background-color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
 
-    .section label {
-      display: block;
+    .header h1 {
+      font-size: 20px;
+      color: #2c3e50;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+    }
+
+    .profile img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      margin-left: 15px;
+    }
+
+    .dashboard {
+      padding: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .card h3 {
       margin-bottom: 10px;
-      font-weight: bold;
+      color: #7f8c8d;
+      font-size: 14px;
     }
 
-    input[type="date"] {
+    .card span {
+      font-size: 24px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .calendar-section,
+    .buttons-section,
+    .student-list-section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+
+    .calendar-section label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #calendar {
       padding: 8px;
       width: 100%;
       max-width: 250px;
-      margin-top: 5px;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
 
-    button {
+    .buttons-section button {
       padding: 10px 15px;
-      margin: 8px 5px;
+      margin: 10px 0;
       border: none;
-      background-color: #4CAF50;
+      background-color: #3498db;
       color: white;
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s ease;
     }
 
-    button:hover {
-      background-color: #45a049;
+    .buttons-section button:hover {
+      background-color: #2980b9;
     }
 
     #dateDisplay {
-      display: inline-block;
-      margin-top: 8px;
       font-weight: bold;
-      color: #555;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      display: inline-block;
     }
+
+    .student-list-section h3 {
+      margin-bottom: 15px;
+    }
+
+    .student-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+    }
+
+    .status-btns button {
+      margin-left: 5px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .present-btn { background-color: #2ecc71; }
+    .absent-btn { background-color: #e74c3c; }
+    .late-btn { background-color: #f1c40f; color: #333; }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h2>Student Attendance System</h2>
+  <div class="header">
+    <h1>Student Attendance System</h1>
+    <div class="profile">
+      <span>Welcome, Aman</span>
+      <img src="https://i.pravatar.cc/150?img=3" alt="Profile">
+    </div>
+  </div>
 
-    <div class="section">
+  <div class="dashboard">
+    <div class="grid">
+      <div class="card">
+        <h3>Attendance Started</h3>
+        <span id="attendanceStatus">No</span>
+      </div>
+      <div class="card">
+        <h3>Students Present</h3>
+        <span id="presentCount">--</span>
+      </div>
+      <div class="card">
+        <h3>Students Absent</h3>
+        <span id="absentCount">--</span>
+      </div>
+      <div class="card">
+        <h3>Students Late</h3>
+        <span id="lateCount">--</span>
+      </div>
+    </div>
+
+    <div class="calendar-section">
       <label>Current Date: <span id="dateDisplay"></span></label>
       <input type="date" id="calendar">
     </div>
 
-    <div class="section">
+    <div class="buttons-section">
       <button onclick="addStudent()">Add Student</button>
-      <button onclick="startAttendance()">Start Attendance</button>
     </div>
 
-    <div class="section">
-      <button onclick="markPresent()">Present</button>
-      <button onclick="markAbsent()">Absent</button>
-    </div>
-
-    <div class="section">
-      <button onclick="viewStatistics()">Statistics</button>
-      <button onclick="sundaysAbsent()">Sundays Absent</button>
-      <button onclick="resetLate()">Reset Late</button>
+    <div class="student-list-section" id="studentListSection" style="display: none;">
+      <h3>Mark Attendance</h3>
+      <div id="studentList"></div>
     </div>
   </div>
 
   <script>
-    // Display the current date
     document.getElementById("dateDisplay").textContent = new Date().toLocaleDateString();
 
+    const studentListContainer = document.getElementById("studentList");
+    const studentSection = document.getElementById("studentListSection");
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+
     function addStudent() {
-      alert("Add Student clicked");
-      window.location.href = "/addstudent.html"
+      window.location.href = "addstudent.html";
     }
 
     function startAttendance() {
-      alert("Attendance started");
+      document.getElementById("attendanceStatus").textContent = "Yes";
+      localStorage.setItem("attendanceStarted", "true");
+      studentSection.style.display = "block";
+      renderStudents();
+      updateCounts();
     }
 
-    function markPresent() {
-      alert("Student marked present");
+    function renderStudents() {
+      studentListContainer.innerHTML = "";
+      students.forEach((student, index) => {
+        const div = document.createElement("div");
+        div.className = "student-item";
+        div.innerHTML = `
+          <span>${student.name}</span>
+          <div class="status-btns">
+            <button class="present-btn" onclick="updateStatus(${index}, 'present')">Present</button>
+            <button class="absent-btn" onclick="updateStatus(${index}, 'absent')">Absent</button>
+            <button class="late-btn" onclick="updateStatus(${index}, 'late')">Late</button>
+          </div>
+        `;
+        studentListContainer.appendChild(div);
+      });
     }
 
-    function markAbsent() {
-      alert("Student marked absent");
+    function updateStatus(index, status) {
+      students[index].status = status;
+      localStorage.setItem("students", JSON.stringify(students));
+      updateCounts();
     }
 
-    function viewStatistics() {
-      alert("Viewing statistics");
+    function updateCounts() {
+      const present = students.filter(s => s.status === 'present').length;
+      const absent = students.filter(s => s.status === 'absent').length;
+      const late = students.filter(s => s.status === 'late').length;
+      document.getElementById("presentCount").textContent = present;
+      document.getElementById("absentCount").textContent = absent;
+      document.getElementById("lateCount").textContent = late;
     }
 
-    function sundaysAbsent() {
-      alert("Showing Sundays absent");
-    }
-
-    function resetLate() {
-      alert("Late representation reset");
+    // Initial load if attendance already started
+    if (localStorage.getItem("attendanceStarted") === "true") {
+      document.getElementById("attendanceStatus").textContent = "Yes";
+      studentSection.style.display = "block";
+      renderStudents();
+      updateCounts();
     }
   </script>
-
 </body>
 </html>

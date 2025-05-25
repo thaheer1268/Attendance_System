@@ -1,28 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vikas.web</title>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-  <link rel="stylesheet" href="addstudent.css">
-  <script defer src="addstudent.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Student</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f6f8;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
+      font-weight: 600;
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2e86de;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1e6ab3;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+      color: #e74c3c;
+    }
+  </style>
 </head>
 <body>
- <div class="container">
-  <div class="todo-app">
-    <h2>To-Do list</h2>
-    <div class="row">
-      <input type="text" id="input-box" placeholder="add your text">
-      <button onclick="addTask()">Add</button>
-    </div>
-    <ul id="list-container">
-      <!-- <li  class="ck">Task 1</li>
-      <li>Task 2</li>
-      <li>Task 3</li> -->
-    </ul>
-
+  <div class="container">
+    <h2>Add New Student</h2>
+    <input type="text" id="studentName" placeholder="Enter student name" />
+    <button onclick="saveStudent()">Add Student</button>
+    <div class="message" id="message"></div>
   </div>
- </div> 
+
+  <script>
+    function saveStudent() {
+      const nameInput = document.getElementById("studentName");
+      const messageDiv = document.getElementById("message");
+      const name = nameInput.value.trim();
+
+      if (!name) {
+        messageDiv.textContent = "Please enter a student name.";
+        return;
+      }
+
+      let students = JSON.parse(localStorage.getItem("students")) || [];
+
+      const exists = students.some(s => s.name.toLowerCase() === name.toLowerCase());
+      if (exists) {
+        messageDiv.textContent = "Student already exists.";
+        return;
+      }
+
+      students.push({ name: name, status: "" });
+      localStorage.setItem("students", JSON.stringify(students));
+
+      messageDiv.style.color = "green";
+      messageDiv.textContent = "Student added successfully! Redirecting...";
+
+      setTimeout(() => {
+        window.location.href = "frontdashboard.html"; // Update if your main file has a different name
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
