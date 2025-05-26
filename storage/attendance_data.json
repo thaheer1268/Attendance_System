@@ -1,0 +1,14 @@
+{
+  "attendanceStarted": true,
+  "students": [
+    {
+      "name": "rohith",
+      "status": "absent"
+    },
+    {
+      "name": "sandy",
+      "status": "absent"
+    }
+  ],
+  "lastUpdated": "2025-05-26T05:41:25.251Z"
+}
