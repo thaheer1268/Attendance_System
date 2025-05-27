@@ -1,145 +1,177 @@
 * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f4f6f8;
-      color: #333;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
 
-    .header {
-      background-color: #fff;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    }
+.header {
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
 
-    .header h1 {
-      font-size: 20px;
-      color: #2c3e50;
-    }
+.header h1 {
+  font-size: 20px;
+  color: #2c3e50;
+}
 
-    .profile {
-      display: flex;
-      align-items: center;
-    }
+.profile {
+  display: flex;
+  align-items: center;
+}
 
-    .profile img {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      margin-left: 15px;
-    }
+.profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
 
-    .dashboard {
-      padding: 30px;
-    }
+.dashboard {
+  padding: 30px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      margin-bottom: 30px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
 
-    .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      text-align: center;
-    }
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
 
-    .card h3 {
-      margin-bottom: 10px;
-      color: #7f8c8d;
-      font-size: 14px;
-    }
+.card h3 {
+  margin-bottom: 10px;
+  color: #7f8c8d;
+  font-size: 14px;
+}
 
-    .card span {
-      font-size: 24px;
-      font-weight: 600;
-      color: #2c3e50;
-    }
+.card span {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+}
 
-    .calendar-section,
-    .buttons-section,
-    .student-list-section {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
-    }
+#lastAttendanceTime {
+  font-size: 14px;
+  color: #7f8c8d;
+}
 
-    .calendar-section label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+.calendar-section,
+.buttons-section,
+.student-list-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+}
 
-    #calendar {
-      padding: 8px;
-      width: 100%;
-      max-width: 250px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
+.calendar-section label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-    .buttons-section button {
-      padding: 10px 15px;
-      margin: 10px 0;
-      border: none;
-      background-color: #3498db;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+#calendar {
+  padding: 8px;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
-    .buttons-section button:hover {
-      background-color: #2980b9;
-    }
+.buttons-section button {
+  padding: 10px 15px;
+  margin: 10px 5px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-    #dateDisplay {
-      font-weight: bold;
-      color: #2c3e50;
-      margin-bottom: 10px;
-      display: inline-block;
-    }
+.buttons-section button:hover {
+  background-color: #2980b9;
+}
 
-    .student-list-section h3 {
-      margin-bottom: 15px;
-    }
+#dateDisplay {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  display: inline-block;
+}
 
-    .student-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      padding: 10px;
-      background-color: #f9f9f9;
-      border-radius: 5px;
-    }
+.student-list-section h3 {
+  margin-bottom: 15px;
+}
 
-    .status-btns button {
-      margin-left: 5px;
-      padding: 6px 10px;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      cursor: pointer;
-    }
+.student-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
 
-    .present-btn { background-color: #2ecc71; }
-    .absent-btn { background-color: #e74c3c; }
-    .late-btn { background-color: #f1c40f; color: #333; }
-    .remove-btn { 
-      background-color: #95a5a6; 
-      margin-left: 10px;
-    }
+.status-btns button {
+  margin-left: 5px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.present-btn { background-color: #2ecc71; }
+.absent-btn { background-color: #e74c3c; }
+.late-btn { background-color: #f1c40f; color: #333; }
+.remove-btn { 
+  background-color: #95a5a6; 
+  margin-left: 10px;
+}
+/* Add these new styles at the end of your CSS file */
+
+.student-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-name {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.student-time {
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+/* Adjust the student item layout */
+.student-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}

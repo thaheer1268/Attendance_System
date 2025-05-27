@@ -3,12 +3,29 @@
   "students": [
     {
       "name": "rohith",
-      "status": "absent"
+      "status": "present",
+      "timestamp": "2025-05-27T04:51:34.829Z"
     },
     {
       "name": "sandy",
-      "status": "absent"
+      "status": "absent",
+      "timestamp": "2025-05-27T04:51:38.459Z"
+    },
+    {
+      "name": "thaheer",
+      "status": "absent",
+      "timestamp": "2025-05-27T04:51:43.965Z"
+    },
+    {
+      "name": "aman",
+      "status": "absent",
+      "timestamp": "2025-05-27T04:51:47.120Z"
+    },
+    {
+      "name": "vikas",
+      "status": "present",
+      "timestamp": "2025-05-27T04:51:48.368Z"
     }
   ],
-  "lastUpdated": "2025-05-26T05:41:25.251Z"
+  "lastAttendanceTime": "2025-05-27T04:51:48.368Z"
 }

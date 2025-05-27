@@ -6,14 +6,13 @@
   <title>Student Attendance System</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="frontdashboard.css">
-  <script src="frontdashboard.js"></script>
 </head>
 <body>
 
   <div class="header">
     <h1>Student Attendance System</h1>
     <div class="profile">
-      <span>Welcome, All</span>
+      <span>Welcome, Admin</span>
       <img src="https://i.pravatar.cc/150?img=3" alt="Profile">
     </div>
   </div>
@@ -23,6 +22,10 @@
       <div class="card">
         <h3>Attendance Started</h3>
         <span id="attendanceStatus">No</span>
+      </div>
+      <div class="card">
+        <h3>Last Attendance Taken</h3>
+        <span id="lastAttendanceTime">--</span>
       </div>
       <div class="card">
         <h3>Students Present</h3>
@@ -56,6 +59,6 @@
     </div>
   </div>
 
-  
+  <script src="frontdashboard.js"></script>
 </body>
 </html>
